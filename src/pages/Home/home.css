@@ -5,13 +5,14 @@
     flex-direction: column;
     margin: 0 auto;
 
-    width: 50%;
+    width: 80%;
     height: 100%;
  
 }
 
 .container h1{
     margin: 84px 0 24px;
+    color: #fff;
 }
 
 .container input {
@@ -33,7 +34,7 @@
     font-weight: 700;
 
     background: #00ff00;
-    color: #f2f2f2;
+    color: #000;
 
     border-radius: 5px;
     margin: 12px 0 84px;
