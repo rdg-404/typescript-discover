@@ -1,7 +1,13 @@
 .container{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+    margin: 0 auto;
+
+    width: 50%;
+    height: 100%;
+ 
 }
 
 .container h1{
@@ -15,8 +21,10 @@
     background: #e6e6e6;
     border-radius: 5px;
     border: none;
+    outline: none;
 
     font-size: 16px;
+   
 }
 
 .container button{
@@ -25,7 +33,7 @@
     font-weight: 700;
 
     background: #00ff00;
-    color: #fff;
+    color: #f2f2f2;
 
     border-radius: 5px;
     margin: 12px 0 84px;
@@ -35,7 +43,7 @@
     cursor: pointer;
 
     transition: filter 0.2s;
-    font-size: 16px;
+    font-size: 18px;
 
 }
 
