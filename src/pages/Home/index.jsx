@@ -6,20 +6,37 @@ import React from 'react';
 
 export function Home() {
 
-  const [studentName, setStudentName] = useState();
+  const [studentName, setStudentName] = useState(''); //seta uma novo estudante e atualiza ele
+  const [students, setStudents] = useState([]);
+
+  function handleAddStudent(){ 
+    const newStudent = {
+      name: studentName, 
+      time: new Date().toLocaleTimeString("pt-br", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      })
+    };
+
+    setStudents(prevState => [...prevState, newStudent]); //add um novo estudante mantendo os anteriores
+  }
+ 
 
   return (
     <div className="container">
-      <h1>Nome: {studentName}</h1>
+      <h1>Lista de Presença</h1>
       <input 
         type="text" 
         placeholder='Digite seu nome...' 
         onChange={e => setStudentName(e.target.value)}
       />
-      <button type='button'>Adicionar</button>
-      <Card name="Rodrigo" time="14:35"/>
-      <Card name="Ana" time="14:45"/>
-      <Card name="John" time="13:45"/>
+      <button type='button' onClick={handleAddStudent}>Adicionar</button>
+      {
+        students.map(student =>  <Card name={student.name} time={student.time}/>) //percorre a lista para pegar os estudantes add
+      }
+      
+   
     </div>
   )
 }
