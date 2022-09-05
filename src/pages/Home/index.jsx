@@ -1,12 +1,12 @@
 import './home.css';
 import { Card } from "../../components/Card";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import React from 'react';
 
 
 export function Home() {
 
-  const [studentName, setStudentName] = useState(''); //seta uma novo estudante e atualiza ele
+  const [studentName, setStudentName] = useState(' '); //seta uma novo estudante e atualiza ele
   const [students, setStudents] = useState([]);
 
   function handleAddStudent(){ 
@@ -21,6 +21,11 @@ export function Home() {
 
     setStudents(prevState => [...prevState, newStudent]); //add um novo estudante mantendo os anteriores
   }
+
+  useEffect(() => {
+    console.log("useEffect foi chamado")
+  }, [])
+
  
 
   return (
