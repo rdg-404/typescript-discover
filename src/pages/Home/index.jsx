@@ -8,6 +8,7 @@ export function Home() {
 
   const [studentName, setStudentName] = useState(' '); //seta uma novo estudante e atualiza ele
   const [students, setStudents] = useState([]);
+  const [user, setUser] = useState({name: "", avatar: ""})
 
   function handleAddStudent(){ 
     const newStudent = {
@@ -23,7 +24,16 @@ export function Home() {
   }
 
   useEffect(() => {
-    console.log("useEffect foi chamado")
+    fetch("https://api.github.com/users/rdg-404") //pega info da api
+      .then( (response) => response.json()) //transforma em json
+      .then( (data) => {
+        // console.log(data);
+        //atribui ao userState as informação que precisa mostrar
+        setUser({
+          name: data.name,
+          avatar: data.avatar_url
+        })
+      })
   }, [])
 
  
@@ -33,8 +43,8 @@ export function Home() {
       <header>
         <h1>Lista de Presença</h1>
         <div>
-            <strong>Rodrigo</strong>
-            <img src="https://github.com/rdg-404.png" alt="foto de perfil" />
+            <strong>{user.name}</strong>
+            <img src={user.avatar} alt="foto de perfil" />
         </div>
       </header>
       
