@@ -24,17 +24,31 @@ export function Home() {
   }
 
   useEffect(() => {
-    fetch("https://api.github.com/users/rdg-404") //pega info da api
-      .then( (response) => response.json()) //transforma em json
-      .then( (data) => {
-        // console.log(data);
-        //atribui ao userState as informação que precisa mostrar
-        setUser({
-          name: data.name,
-          avatar: data.avatar_url
-        })
+    // fetch("https://api.github.com/users/rdg-404") //pega info da api
+    //   .then( (response) => response.json()) //transforma em json
+    //   .then( (data) => {
+    //     // console.log(data);
+    //     //atribui ao userState as informação que precisa mostrar
+    //     setUser({
+    //       name: data.name,
+    //       avatar: data.avatar_url
+    //     })
+    //   })
+
+    async function fetchData(){
+      const response = await fetch("https://api.github.com/users/rdg-404");
+      const data = await response.json();
+      console.log("DADOS ===> ", data)
+
+
+      setUser({
+        name: data.name,
+        avatar: data.avatar_url,
       })
-  }, [])
+    } 
+
+    fetchData();
+    }, [])
 
  
 
