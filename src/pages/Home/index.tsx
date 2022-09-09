@@ -4,11 +4,21 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 
 
+type ProfileResponse = {
+  name: string;
+  avatar_url: string;
+}
+
+type User = {
+  name: string;
+  avatar: string;
+}
+
 export function Home() {
 
   const [studentName, setStudentName] = useState(' '); //seta uma novo estudante e atualiza ele
   const [students, setStudents] = useState<CardProps[]>([]);
-  const [user, setUser] = useState({name: "", avatar: ""})
+  const [user, setUser] = useState<User>({} as User )
 
   function handleAddStudent(){ 
     const newStudent = {
@@ -37,7 +47,7 @@ export function Home() {
 
     async function fetchData(){
       const response = await fetch("https://api.github.com/users/rdg-404");
-      const data = await response.json();
+      const data = await response.json() as ProfileResponse;
       console.log("DADOS ===> ", data)
 
 
