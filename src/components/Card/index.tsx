@@ -1,6 +1,6 @@
 import './card.css';
 
-type CardProps = {
+export type CardProps = {
     name: string;
     time: string;
 }

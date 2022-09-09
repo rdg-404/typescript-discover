@@ -1,5 +1,5 @@
 import './home.css';
-import { Card } from "../../components/Card";
+import { Card, CardProps } from "../../components/Card";
 import { useState, useEffect } from 'react';
 import React from 'react';
 
@@ -7,7 +7,7 @@ import React from 'react';
 export function Home() {
 
   const [studentName, setStudentName] = useState(' '); //seta uma novo estudante e atualiza ele
-  const [students, setStudents] = useState([]);
+  const [students, setStudents] = useState<CardProps[]>([]);
   const [user, setUser] = useState({name: "", avatar: ""})
 
   function handleAddStudent(){ 
